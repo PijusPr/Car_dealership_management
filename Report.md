@@ -24,11 +24,47 @@ The program is implemented using object-oriented programming (OOP) principles: e
 ## OOP Pillars Used and Implementation
 
 1. **Encapsulation**: Data and methods are encapsulated within classes, ensuring data integrity and preventing direct access to class attributes from outside the class. For example, the <strong>Car</strong> and <strong>ElectricCar</strong> classes encapsulate vehicle attributes such as brand, model, year, etc., and provide methods to interact with them (<strong>add_vehicle</strong>, <strong>__str__</strong> etc.).
+```
+class Car:
+    def __init__(self, brand='', model='', year=0, color='', mileage=0, price=0):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.color = color
+        self.mileage = mileage
+        self.price = price
 
+    def add_vehicle(self):
+        pass
+
+    def __str__(self):
+        pass
+```
 2. **Inheritance**: Inheritance is used to create a hierarchy of classes where child classes inherit attributes and methods from parent classes. The <strong>ElectricCar</strong> class inherits from the <strong>Car</strong> class, allowing it to reuse common functionality while extending it with additional attributes and methods specific to electric vehicle (range attribute in specific).
+```
+class ElectricCar(Car):
+    def __init__(self, range=0):
+        super().__init__()
+        self.range = range
 
-3. **Polymorphism**: Polymorphism allows objects of different classes to be treated as objects of a common superclass. For instance, both <strong>Car</strong> and <strong>ElectricCar</strong> objects can be stored and manipulated within the <strong>Inventory</strong> class, enabling uniform operations on different types of vehicles.
+    def add_vehicle(self):
+        pass
 
+    def __str__(self):
+        pass
+```
+4. **Polymorphism**: Polymorphism allows objects of different classes to be treated as objects of a common superclass. For instance, both <strong>Car</strong> and <strong>ElectricCar</strong> objects can be stored and manipulated within the <strong>Inventory</strong> class, enabling uniform operations on different types of vehicles.
+```
+class Inventory:
+    def __init__(self):
+        self.vehicles = []
+
+    def add_vehicle(self):
+        pass
+
+    def view_inventory(self):
+        pass
+```
 ## Design Patterns
 
 1. **Factory Method**: The <strong>add_vehicle</strong> method in the <strong>Inventory</strong> class acts as a factory method that dynamically creates instances of <strong>Car</strong> or <strong>ElectricCar</strong> based on user input. This promotes flexibility and extensibility by allowing the addition of new vehicle types without modifying existing code.
